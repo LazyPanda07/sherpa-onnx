@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: checkout@v7
+    - uses: actions/checkout@v7
       with:
         submodules: recursive
 
