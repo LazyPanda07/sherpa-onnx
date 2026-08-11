@@ -30,4 +30,5 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v7
       with:
+        name: win64-sherpa-onnx
         path: build/install-dir/*
