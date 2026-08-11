@@ -3,7 +3,7 @@ name: dynamic-api-with-static-onnxruntime
 on:
   push:
     branches:
-      - dynamic-api-with-static-onnxruntime
+      - feature/dynamic-api-with-static-onnxruntime
 
 
 jobs:
