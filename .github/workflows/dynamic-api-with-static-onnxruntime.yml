@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feature/dynamic-api-with-static-onnxruntime
+  workflow_dispatch:
 
 
 jobs:
@@ -25,3 +26,8 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_PREFIX=install-dir -DBUILD_SHARED_LIBS=ON -DSHERPA_ONNX_USE_STATIC_CRT=OFF -DSHERPA_STATIC_ONNXRUNTIME=ON -G "Ninja" ..
         cmake --build . -j
         cmake --install .
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@7
+      with:
+        path: build/install-dir/*
