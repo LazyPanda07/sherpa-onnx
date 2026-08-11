@@ -82,7 +82,7 @@ if(NOT onnxruntime_POPULATED)
   FetchContent_Declare(
       onnxruntime_headers 
       URL ${ORIGINAL_ONNXRUNTIME_URL}
-      HASH ${ORIGINAL_ONNXRUNTIME_HASH}
+      URL_HASH ${ORIGINAL_ONNXRUNTIME_HASH}
   )
 
   FetchContent_MakeAvailable(onnxruntime_headers)
