@@ -1,17 +1,17 @@
 function(download_eigen)
   include(FetchContent)
 
-  set(eigen_URL  "https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.gz")
-  set(eigen_HASH "SHA256=e9c326dc8c05cd1e044c71f30f1b2e34a6161a3b6ecf445d56b53ff1669e3dec")
+  set(eigen_URL  "https://github.com/eigen-mirror/eigen/archive/1d8b82b0740839c0de7f1242a3585e3390ff5f33/eigen-1d8b82b0740839c0de7f1242a3585e3390ff5f33.zip")
+  set(eigen_HASH "SHA256=6a60d76351f97132669daeeb721d6bf14b008101883ad2d687a3201c5c461eb0")
 
   # If you don't have access to the Internet,
   # please pre-download eigen
   set(possible_file_locations
-    $ENV{HOME}/Downloads/eigen-5.0.1.tar.gz
-    ${CMAKE_SOURCE_DIR}/eigen-5.0.1.tar.gz
-    ${CMAKE_BINARY_DIR}/eigen-5.0.1.tar.gz
-    /tmp/eigen-5.0.1.tar.gz
-    /star-fj/fangjun/download/github/eigen-5.0.1.tar.gz
+    $ENV{HOME}/Downloads/eigen-3.4.90.tar.gz
+    ${CMAKE_SOURCE_DIR}/eigen-3.4.90.tar.gz
+    ${CMAKE_BINARY_DIR}/eigen-3.4.90.tar.gz
+    /tmp/eigen-3.4.90.tar.gz
+    /star-fj/fangjun/download/github/eigen-3.4.90.tar.gz
   )
 
   foreach(f IN LISTS possible_file_locations)

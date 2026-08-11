@@ -80,7 +80,16 @@ option(SHERPA_ONNX_ENABLE_AXCL "Whether to build for Axcl NPU " OFF)
 option(SHERPA_ONNX_ENABLE_ASCEND_NPU "Whether to build for Ascend NPU " OFF)
 option(SHERPA_ONNX_ENABLE_QNN "Whether to build for Qualcomm NPU" OFF)
 option(SHERPA_ONNX_ENABLE_SPACEMIT "Whether to build for SpacemiT CPUs " OFF)
+option(SHERPA_STATIC_ONNXRUNTIME "Whether to build with static onnxruntime" ON)
 set(SHERPA_ONNX_LINUX_ARM64_GPU_ONNXRUNTIME_VERSION "1.11.0" CACHE STRING "Used only for Linux ARM64 GPU. Set to 1.11.0 if you use CUDA 10.2 and cudnn8. Set it to 1.16.0 if you use CUDA 11.4 and cudnn8. Set it to 1.18.0 if you use CUDA 12.2 and cudnn8. Set it to 1.18.1 if you use CUDA 12.6 and cudnn9")
+
+if (WIN32)
+    if (NOT DEFINED CMAKE_VS_PLATFORM_NAME)
+        set(CMAKE_VS_PLATFORM_NAME x64)
+    elseif(${CMAKE_VS_PLATFORM_NAME} STREQUAL "")
+        set(CMAKE_VS_PLATFORM_NAME x64)
+    endif()
+endif()
 
 # SHERPA_ONNX_USE_STATIC_CRT controls whether we use:
 #   - Static CRT:   /MT  (Release), /MTd (Debug)
