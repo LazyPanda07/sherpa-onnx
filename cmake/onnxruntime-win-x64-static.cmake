@@ -87,7 +87,7 @@ if(NOT onnxruntime_POPULATED)
 
   FetchContent_MakeAvailable(onnxruntime_headers)
 
-  file(COPY "${onnxruntime_headers_SOURCE_DIR}/include" DESTINATION "${onnxruntime_SOURCE_DIR}/include")
+  file(COPY "${onnxruntime_headers_SOURCE_DIR}/include/" DESTINATION "${onnxruntime_SOURCE_DIR}/include")
 endif()
 message(STATUS "onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}")
 
