@@ -5,6 +5,9 @@ message(STATUS "CMAKE_VS_PLATFORM_NAME: ${CMAKE_VS_PLATFORM_NAME}")
 
 set(ONNXRUNTIME_VERSION 1.28.0)
 
+set(ORIGINAL_ONNXRUNTIME_URL https://github.com/microsoft/onnxruntime/releases/download/v1.28.0/onnxruntime-win-x64-1.28.0.zip)
+set(ORIGINAL_ONNXRUNTIME_HASH "SHA256=abef733dacbe2f571547a7150b479b5cb9cc0df22f96c24983a42cadb1b4f8bc")
+
 if(NOT CMAKE_SYSTEM_NAME STREQUAL Windows)
   message(FATAL_ERROR "This file is for Windows only. Given: ${CMAKE_SYSTEM_NAME}")
 endif()
@@ -75,6 +78,16 @@ FetchContent_GetProperties(onnxruntime)
 if(NOT onnxruntime_POPULATED)
   message(STATUS "Downloading onnxruntime from ${onnxruntime_URL}")
   FetchContent_Populate(onnxruntime)
+
+  FetchContent_Declare(
+      onnxruntime_headers 
+      URL ${ORIGINAL_ONNXRUNTIME_URL}
+      HASH ${ORIGINAL_ONNXRUNTIME_HASH}
+  )
+
+  FetchContent_MakeAvailable(onnxruntime_headers)
+
+  file(COPY "${onnxruntime_headers_SOURCE_DIR}/include" DESTINATION "${onnxruntime_SOURCE_DIR}/include")
 endif()
 message(STATUS "onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}")
 
