@@ -46,7 +46,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_PREFIX=install-dir -DBUILD_SHARED_LIBS=ON -DSHERPA_ONNX_USE_STATIC_CRT=OFF -DSHERPA_STATIC_ONNXRUNTIME=ON -G "Ninja" ..
+        cmake -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_PREFIX=install-dir -DBUILD_SHARED_LIBS=ON -DSHERPA_STATIC_ONNXRUNTIME=ON -G "Ninja" ..
         cmake --build . -j
         cmake --install .
 
