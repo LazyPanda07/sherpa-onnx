@@ -4,7 +4,7 @@ message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
 
 set(ONNXRUNTIME_VERSION 1.28.0)
 
-set(ORIGINAL_ONNXRUNTIME_URL https://github.com/microsoft/onnxruntime/releases/download/v1.28.0/onnxruntime-linux-x64-1.28.0.zip)
+set(ORIGINAL_ONNXRUNTIME_URL https://github.com/microsoft/onnxruntime/releases/download/v1.28.0/onnxruntime-linux-x64-1.28.0.tgz)
 set(ORIGINAL_ONNXRUNTIME_HASH "SHA256=a3e1b79d7bb1bf09696ce675f49e4064e6c81f6202b8225624fff0e93f8d6407")
 
 if(NOT CMAKE_SYSTEM_NAME STREQUAL Linux)
