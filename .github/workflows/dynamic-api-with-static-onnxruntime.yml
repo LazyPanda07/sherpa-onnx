@@ -32,3 +32,26 @@ jobs:
       with:
         name: win64-sherpa-onnx
         path: build/install-dir/*
+
+
+  linux-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        submodules: recursive
+
+    - name: Build
+      run: |
+        mkdir build
+        cd build
+        cmake -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_PREFIX=install-dir -DBUILD_SHARED_LIBS=ON -DSHERPA_ONNX_USE_STATIC_CRT=OFF -DSHERPA_STATIC_ONNXRUNTIME=ON -G "Ninja" ..
+        cmake --build . -j
+        cmake --install .
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v7
+      with:
+        name: linux-sherpa-onnx
+        path: build/install-dir/*
